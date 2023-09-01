@@ -171,7 +171,8 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-       // menu.setVisible(true);
+        MenuPrincipal menu=new MenuPrincipal(empleados);
+         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -184,6 +185,7 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
         }else
             try {
                 empleados.addEmployee(nombre,salario);
+                JOptionPane.showMessageDialog(null, "Seagrego Empleado");
         } catch (IOException ex) {
            JOptionPane.showConfirmDialog(null, "Algo salio mal");
         }

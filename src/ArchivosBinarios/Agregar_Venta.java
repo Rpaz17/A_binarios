@@ -168,7 +168,8 @@ public class Agregar_Venta extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        // menu.setVisible(true);
+         MenuPrincipal menu=new MenuPrincipal(empleados);
+         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -181,6 +182,7 @@ public class Agregar_Venta extends javax.swing.JFrame {
         }else
         try {
             empleados.addSaleToEmployee(codigo, venta);
+            JOptionPane.showMessageDialog(null, "Se agrego venta");
         } catch (IOException ex) {
             JOptionPane.showConfirmDialog(null, "Algo salio mal");
         }

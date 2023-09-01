@@ -39,14 +39,14 @@ public class PagarEmpleado extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         txtVenta = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
-        btnAgregar = new javax.swing.JButton();
+        btnPagar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        jLabel1.setText("Agregar Venta");
+        jLabel1.setText("Pagar Empleado");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jLabel2.setText("Codigo:");
@@ -79,17 +79,17 @@ public class PagarEmpleado extends javax.swing.JFrame {
             }
         });
 
-        btnAgregar.setBackground(new java.awt.Color(153, 153, 0));
-        btnAgregar.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
-        btnAgregar.setText("Agregar");
-        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnPagar.setBackground(new java.awt.Color(153, 153, 0));
+        btnPagar.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
+        btnPagar.setText("Pagar");
+        btnPagar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAgregarMouseClicked(evt);
+                btnPagarMouseClicked(evt);
             }
         });
-        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+        btnPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarActionPerformed(evt);
+                btnPagarActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class PagarEmpleado extends javax.swing.JFrame {
                 .addGap(46, 46, 46))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(btnAgregar)
+                .addComponent(btnPagar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnBack)
                 .addGap(71, 71, 71))
@@ -135,7 +135,7 @@ public class PagarEmpleado extends javax.swing.JFrame {
                     .addComponent(txtTipos))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregar)
+                    .addComponent(btnPagar)
                     .addComponent(btnBack))
                 .addGap(180, 180, 180)
                 .addComponent(jLabel5)
@@ -172,7 +172,7 @@ public class PagarEmpleado extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+    private void btnPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMouseClicked
         // TODO add your handling code here:
         String nombre = txtCodigo.getText();
         double salario = Double.valueOf(txtVenta.getText());
@@ -184,16 +184,16 @@ public class PagarEmpleado extends javax.swing.JFrame {
         } catch (IOException ex) {
             JOptionPane.showConfirmDialog(null, "Algo salio mal");
         }
-    }//GEN-LAST:event_btnAgregarMouseClicked
+    }//GEN-LAST:event_btnPagarMouseClicked
 
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+    private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAgregarActionPerformed
+    }//GEN-LAST:event_btnPagarActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnPagar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
