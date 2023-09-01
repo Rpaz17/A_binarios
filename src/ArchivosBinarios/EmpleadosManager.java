@@ -156,7 +156,11 @@ public class EmpleadosManager {
 
                     }
                 }
+            }else{
+                remps.seek(remps.getFilePointer()+1);
             }
         }
     }
+
+
 }
