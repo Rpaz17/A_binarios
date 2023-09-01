@@ -224,8 +224,7 @@ public class EmpleadosManager {
         filesp.writeInt(Calendar.getInstance().get(Calendar.YEAR));
         filesp.writeInt(Calendar.getInstance().get(Calendar.MONTH));
         }else{
-            
-        JOptionPane.showMessageDialog(null, "¡Error: Ya se le pagó a este empleado!");
+            System.out.println("Ya se le pagó");
     }
     }
 
