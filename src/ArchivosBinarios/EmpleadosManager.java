@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 public class EmpleadosManager {
 
@@ -143,26 +144,26 @@ public class EmpleadosManager {
         return false;
     }
 
-    public void addSaleToEmployee(int code, double sale) throws IOException {
-        remps.seek(0);
-        while (remps.getFilePointer() < remps.length()) {
-            int cod = remps.readInt();
-            long pos = remps.getFilePointer();
-            if (cod == code && isEmployeeActive(code)) {
-                int mes = Calendar.getInstance().get(Calendar.MONTH);
-                salesFileFor(code).seek(0);
-                while (salesFileFor(code).getFilePointer() < 12) {
-                    if (salesFileFor(code).getFilePointer() == mes) {
-                        double salarioSumado = salesFileFor(code).readDouble() + sale;
-                        salesFileFor(code).writeDouble(salarioSumado);
-
-                    }
-                }
-            } else {
-                remps.seek(remps.getFilePointer() + 1);
+    public void addSalestoEmployee(int code,double sales)throws IOException{
+        RandomAccessFile ryear=salesFileFor(code);
+        ryear.seek(0);
+        
+        int pos=0;
+            for(int i=0;i<Calendar.getInstance().get(Calendar.MONTH);i++){
+                ryear.skipBytes(9);
+                pos+=5;
             }
-        }
-    }
+            
+            if(ryear.readBoolean()==false){
+            ryear.seek(pos);
+            ryear.writeBoolean(true);
+            ryear.writeDouble(sales);
+            JOptionPane.showMessageDialog(null, "Se ha pagado con exito");
+            payEmployee(code,sales);
+            
+            }
+       JOptionPane.showMessageDialog(null, "Error al pagar");
+   }
 
     private RandomAccessFile billsFilefor(int code) throws IOException {
         String recibo = employeeFolder(code);

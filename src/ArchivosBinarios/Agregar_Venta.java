@@ -181,7 +181,7 @@ public class Agregar_Venta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Casillas vacias");
         }else
         try {
-            empleados.addSaleToEmployee(codigo, venta);
+            empleados.addSalestoEmployee(codigo, venta);
             JOptionPane.showMessageDialog(null, "Se agrego venta");
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Algo salio mal");
