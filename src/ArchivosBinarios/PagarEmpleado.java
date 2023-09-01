@@ -188,6 +188,7 @@ public class PagarEmpleado extends javax.swing.JFrame {
         }else
         try {
             empleados.payEmployee(codigo);
+             JOptionPane.showMessageDialog(null, "Se pagó correctamente");
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Algo salio mal");
         }

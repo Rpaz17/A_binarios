@@ -158,11 +158,9 @@ public class EmpleadosManager {
             sYear.seek(pos);
             sYear.writeBoolean(true);
             sYear.writeDouble(sales);
-            JOptionPane.showMessageDialog(null, "Se ha pagado con exito");
             payEmployee(code);
             
             }
-       JOptionPane.showMessageDialog(null, "Error al pagar");
    }
 
     private RandomAccessFile billsFilefor(int code) throws IOException {
