@@ -17,6 +17,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     EmpleadosManager em;
     public MenuPrincipal(EmpleadosManager em) {
         initComponents();
+       setLocationRelativeTo(this);
         this.em=em;
     }
 

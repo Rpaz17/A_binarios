@@ -18,6 +18,7 @@ public class PagarEmpleado extends javax.swing.JFrame {
      */
     public PagarEmpleado(EmpleadosManager empleados) {
         initComponents();
+        setLocationRelativeTo(this);
         this.empleados=empleados;
     }
 
@@ -168,7 +169,8 @@ public class PagarEmpleado extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        // menu.setVisible(true);
+        MenuPrincipal menu=new MenuPrincipal(empleados);
+         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -186,9 +188,8 @@ public class PagarEmpleado extends javax.swing.JFrame {
         }else
         try {
             empleados.payEmployee(codigo);
-              JOptionPane.showConfirmDialog(null, "Se pagó");
         } catch (IOException ex) {
-            JOptionPane.showConfirmDialog(null, "Algo salio mal");
+            JOptionPane.showMessageDialog(null, "Algo salio mal");
         }
     }//GEN-LAST:event_btnPagarActionPerformed
 

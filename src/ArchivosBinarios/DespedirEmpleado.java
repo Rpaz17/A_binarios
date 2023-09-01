@@ -19,6 +19,7 @@ public class DespedirEmpleado extends javax.swing.JFrame {
      */
     public DespedirEmpleado(EmpleadosManager empleados) {
         initComponents();
+        setLocationRelativeTo(this);
          this.empleados=empleados;
     }
 

@@ -18,6 +18,7 @@ public class Agregar_Venta extends javax.swing.JFrame {
      */
     public Agregar_Venta(EmpleadosManager empleados) {
         initComponents();
+         setLocationRelativeTo(this);
         this.empleados=empleados;
     }
 
