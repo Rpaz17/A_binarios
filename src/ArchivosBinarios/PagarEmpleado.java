@@ -173,21 +173,23 @@ public class PagarEmpleado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnPagarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPagarMouseClicked
-        // TODO add your handling code here:
-        String nombre = txtCodigo.getText();
-        double salario = Double.valueOf(txtVenta.getText());
-        if (nombre.isEmpty() || txtVenta.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this, "Casillas vacias");
-        }else
-        try {
-            empleados.addEmployee(nombre,salario);
-        } catch (IOException ex) {
-            JOptionPane.showConfirmDialog(null, "Algo salio mal");
-        }
+   
     }//GEN-LAST:event_btnPagarMouseClicked
 
     private void btnPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarActionPerformed
         // TODO add your handling code here:
+        
+            int codigo = Integer.valueOf(txtCodigo.getText());
+        double salario = Double.valueOf(txtVenta.getText());
+        if ( txtCodigo.getText().isEmpty() || txtVenta.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Casillas vacias");
+        }else
+        try {
+            empleados.payEmployee(codigo);
+              JOptionPane.showConfirmDialog(null, "Se pagó");
+        } catch (IOException ex) {
+            JOptionPane.showConfirmDialog(null, "Algo salio mal");
+        }
     }//GEN-LAST:event_btnPagarActionPerformed
 
    
