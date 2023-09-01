@@ -144,7 +144,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
             Listar_ND lnd = new Listar_ND(em);
             lnd.setVisible(true);
             this.dispose();
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
     }//GEN-LAST:event_btnListarEmpNoDespedidosActionPerformed
 
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
