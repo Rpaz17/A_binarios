@@ -169,7 +169,7 @@ public class EmpleadosManager {
     }
 
     private double salary(int code) throws IOException {
-        remps.seek(0);
+           remps.seek(0);
         double salario = 0;
 
         while (remps.getFilePointer() < remps.length()) {
@@ -180,10 +180,9 @@ public class EmpleadosManager {
             if (codigo == code) {
                 salario = salary;
             }
-
         }
-
         return salario;
+
     }
 
     public void payEmployee(int code, double venta) throws IOException {
