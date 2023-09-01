@@ -4,6 +4,11 @@
  */
 package ArchivosBinarios;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author fampa
@@ -131,22 +136,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void btnAgregarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarEmpleadoActionPerformed
         Agregar_Empleadou ae = new Agregar_Empleadou(em);
         ae.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnListarEmpNoDespedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEmpNoDespedidosActionPerformed
-        // TODO add your handling code here:
+        try {
+            Listar_ND lnd = new Listar_ND(em);
+            lnd.setVisible(true);
+            this.dispose();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
     }//GEN-LAST:event_btnListarEmpNoDespedidosActionPerformed
 
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed
-        // TODO add your handling code here:
+        Agregar_Venta av = new Agregar_Venta(em);
+        av.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_btnAgregarVentaActionPerformed
 
     private void btnPagarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagarEmpleadoActionPerformed
-        // TODO add your handling code here:
+        PagarEmpleado pe = new PagarEmpleado(em);
+        pe.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnPagarEmpleadoActionPerformed
 
     private void btnDespedirEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDespedirEmpleadoActionPerformed
-        // TODO add your handling code here:
+        DespedirEmpleado de = new DespedirEmpleado(em);
+        de.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnDespedirEmpleadoActionPerformed
 
 

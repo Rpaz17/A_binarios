@@ -101,18 +101,20 @@ public class EmpleadosManager {
     Realizar una lista de empleados NO Despedidos con la siguiente estructura
     Codigo - Nombre - Salario - Fecha Contratacion
      */
-    private void imprimirEmpleadosNoDespedidos() throws IOException {
+    public String imprimirEmpleadosNoDespedidos() throws IOException {
         remps.seek(0);
+        String imprimir="";
         while (remps.getFilePointer() < remps.length()) {
             int code = rcods.readInt();
             String name = remps.readUTF();
             double salary = remps.readDouble();
             Date fecha = new Date(remps.readLong());
             if (remps.readLong() == 0) {
-                System.out.println(code + " - " + name + " - $ " + salary + " - " + fecha);
+                imprimir=(code + " - " + name + " - $ " + salary + " - " + fecha) + imprimir;
             }
 
         }
+        return imprimir;
     }
 
     private boolean isEmployeeActive(int code) throws IOException {
