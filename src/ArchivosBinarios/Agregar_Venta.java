@@ -184,7 +184,7 @@ public class Agregar_Venta extends javax.swing.JFrame {
             empleados.addSaleToEmployee(codigo, venta);
             JOptionPane.showMessageDialog(null, "Se agrego venta");
         } catch (IOException ex) {
-            JOptionPane.showConfirmDialog(null, "Algo salio mal");
+            JOptionPane.showMessageDialog(null, "Algo salio mal");
         }
 
     }//GEN-LAST:event_btnAgregarMouseClicked

@@ -185,7 +185,7 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
         }else
             try {
                 empleados.addEmployee(nombre,salario);
-                JOptionPane.showMessageDialog(null, "Seagrego Empleado");
+                JOptionPane.showMessageDialog(null, "Se agrego Empleado");
         } catch (IOException ex) {
            JOptionPane.showConfirmDialog(null, "Algo salio mal");
         }

@@ -163,10 +163,10 @@ public class DespedirEmpleado extends javax.swing.JFrame {
         }else
         try {
             empleados.fireEmployee(codigo);
-            JOptionPane.showConfirmDialog(null, "Se Despidio el Empleado");
+            JOptionPane.showMessageDialog(null, "Se Despidio el Empleado");
             
         } catch (IOException ex) {
-            JOptionPane.showConfirmDialog(null, "Algo salio mal");
+            JOptionPane.showMessageDialog(null, "Algo salio mal");
         }  
     }//GEN-LAST:event_btnDespedirMouseClicked
 
