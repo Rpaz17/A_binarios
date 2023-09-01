@@ -174,13 +174,13 @@ public class Agregar_Venta extends javax.swing.JFrame {
 
     private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
         // TODO add your handling code here:
-        String nombre = txtCodigo.getText();
-        double salario = Double.valueOf(txtVenta.getText());
-        if (nombre.isEmpty() || txtVenta.getText().isEmpty()){
+        int codigo = Integer.valueOf(txtCodigo.getText());
+        double venta = Double.valueOf(txtVenta.getText());
+        if (txtCodigo.getText().isEmpty() || txtVenta.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Casillas vacias");
         }else
         try {
-            empleados.addEmployee(nombre,salario);
+            empleados.addSaleToEmployee(codigo, venta);
         } catch (IOException ex) {
             JOptionPane.showConfirmDialog(null, "Algo salio mal");
         }
