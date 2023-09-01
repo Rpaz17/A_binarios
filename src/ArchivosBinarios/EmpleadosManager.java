@@ -95,6 +95,7 @@ public class EmpleadosManager {
         }
     }
 
+
     /*
     Imprime:
     Realizar una lista de empleados NO Despedidos con la siguiente estructura
@@ -114,41 +115,48 @@ public class EmpleadosManager {
         }
     }
 
-    private boolean isEmployeeActive(int code)throws IOException{
+    private boolean isEmployeeActive(int code) throws IOException {
         remps.seek(0);
-        while(remps.getFilePointer()<remps.length()){
-            int cod=remps.readInt();
+        while (remps.getFilePointer() < remps.length()) {
+            int cod = remps.readInt();
             long pos = remps.getFilePointer();
             remps.readUTF();
             remps.skipBytes(16);
-            if(remps.readLong()==0 && cod==code){
+            if (remps.readLong() == 0 && cod == code) {
                 remps.seek(pos);
                 return true;
             }
         }
         return false;
     }
-    
-    public boolean fireEmployee(int code)throws IOException{
-        if(isEmployeeActive(code)){
-            String name=remps.readUTF();
+
+    public boolean fireEmployee(int code) throws IOException {
+        if (isEmployeeActive(code)) {
+            String name = remps.readUTF();
             remps.skipBytes(16);
             remps.writeLong(new Date().getTime());
-            System.out.println("Despidiendo a: "+name);
+            System.out.println("Despidiendo a: " + name);
             return true;
         }
         return false;
     }
-    
-    public void addSellToEmployee(int code, double sale) throws IOException{
-       remps.seek(0);
-        while(remps.getFilePointer()<remps.length()){
-            int cod=remps.readInt();
+
+    public void addSaleToEmployee(int code, double sale) throws IOException {
+        remps.seek(0);
+        while (remps.getFilePointer() < remps.length()) {
+            int cod = remps.readInt();
             long pos = remps.getFilePointer();
-            remps.readUTF();
-            
-            
-            
+            if (cod == code && isEmployeeActive(code)) {
+                int mes = Calendar.getInstance().get(Calendar.MONTH);
+                salesFileFor(code).seek(0);
+                while (salesFileFor(code).getFilePointer() < 12) {
+                    if (salesFileFor(code).getFilePointer() == mes) {
+                        double salarioSumado = salesFileFor(code).readDouble() + sale;
+                        salesFileFor(code).writeDouble(salarioSumado);
+
+                    }
+                }
+            }
         }
     }
 }
