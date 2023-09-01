@@ -162,5 +162,10 @@ public class EmpleadosManager {
         }
     }
 
-
+    private RandomAccessFile billsFilefor(int code) throws IOException{
+        String recibo= employeeFolder(code);
+        String path=recibo+"/recibo.emp";
+        return new RandomAccessFile(path,"rw");
+    }
+    
 }
