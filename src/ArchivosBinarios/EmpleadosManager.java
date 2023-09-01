@@ -223,7 +223,6 @@ public class EmpleadosManager {
         filesp.writeDouble(salario - (salario * 0.35));
         filesp.writeInt(Calendar.getInstance().get(Calendar.YEAR));
         filesp.writeInt(Calendar.getInstance().get(Calendar.MONTH));
-        JOptionPane.showMessageDialog(null, "¡Se ha pagado al empleado!");
         }else{
             
         JOptionPane.showMessageDialog(null, "¡Error: Ya se le pagó a este empleado!");
