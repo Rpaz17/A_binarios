@@ -141,13 +141,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarEmpleadoActionPerformed
 
     private void btnListarEmpNoDespedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEmpNoDespedidosActionPerformed
-        try {
             Listar_ND lnd = new Listar_ND(em);
             lnd.setVisible(true);
             this.dispose();
-        } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
-        }
     }//GEN-LAST:event_btnListarEmpNoDespedidosActionPerformed
 
     private void btnAgregarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVentaActionPerformed

@@ -3,6 +3,7 @@ package ArchivosBinarios;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -13,7 +14,8 @@ public class EmpleadosManager {
     //Write solo lo sobreescribe
     //Seek solo es para mover el puntero
     private RandomAccessFile rcods, remps;
-
+    String imprimir;
+    
     public EmpleadosManager() {
         try {
             //1- Asegurar que el folder company exista
@@ -102,20 +104,31 @@ public class EmpleadosManager {
     Realizar una lista de empleados NO Despedidos con la siguiente estructura
     Codigo - Nombre - Salario - Fecha Contratacion
      */
-    public String imprimirEmpleadosNoDespedidos() throws IOException {
+    public void imprimirEmpleadosNoDespedidos() throws IOException {
         remps.seek(0);
-        String imprimir="";
-        while (remps.getFilePointer() < remps.length()) {
-            int code = rcods.readInt();
+        while (remps.getFilePointer() != remps.length()) {
+            // Leer toda la informacion del empleado
+
+            /*
+             * Formato:
+             * Codigo
+             * Nombre
+             * Salario
+             * Fecha Contratacion
+             * Fecha Despido
+             */
+            int code = remps.readInt();
             String name = remps.readUTF();
             double salary = remps.readDouble();
-            Date fecha = new Date(remps.readLong());
-            if (remps.readLong() == 0) {
-                imprimir=(code + " - " + name + " - $ " + salary + " - " + fecha) + imprimir;
+            Date fechaContratacion = new Date(remps.readLong());
+            double millisDespido = remps.readLong();
+            if (millisDespido == 0) {
+                continue;
             }
 
+            String date = new SimpleDateFormat("dd-mm-yyyy").format(fechaContratacion);
+            imprimir+=code + " - " + name + " - $" + salary + " - " + date+"\n  ";
         }
-        return imprimir;
     }
 
     private boolean isEmployeeActive(int code) throws IOException {

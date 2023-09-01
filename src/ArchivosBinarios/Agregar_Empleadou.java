@@ -177,7 +177,14 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
-        // TODO add your handling code here:
+        
+           
+      
+        
+    }//GEN-LAST:event_btnAgregarMouseClicked
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+      // TODO add your handling code here:
         String nombre = txtNombre.getText();
         double salario = Double.valueOf(txtSalario.getText());
         if (nombre.isEmpty() || txtSalario.getText().isEmpty()){
@@ -188,14 +195,7 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Se agrego Empleado");
         } catch (IOException ex) {
            JOptionPane.showConfirmDialog(null, "Algo salio mal");
-        }
-           
-      
-        
-    }//GEN-LAST:event_btnAgregarMouseClicked
-
-    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
+        }  // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     
