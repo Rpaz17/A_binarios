@@ -145,21 +145,21 @@ public class EmpleadosManager {
     }
 
     public void addSalestoEmployee(int code,double sales)throws IOException{
-        RandomAccessFile ryear=salesFileFor(code);
-        ryear.seek(0);
+        RandomAccessFile sYear=salesFileFor(code);
+        sYear.seek(0);
         
         int pos=0;
             for(int i=0;i<Calendar.getInstance().get(Calendar.MONTH);i++){
-                ryear.skipBytes(9);
+                sYear.skipBytes(9);
                 pos+=5;
             }
             
-            if(ryear.readBoolean()==false){
-            ryear.seek(pos);
-            ryear.writeBoolean(true);
-            ryear.writeDouble(sales);
+            if(sYear.readBoolean()==false){
+            sYear.seek(pos);
+            sYear.writeBoolean(true);
+            sYear.writeDouble(sales);
             JOptionPane.showMessageDialog(null, "Se ha pagado con exito");
-            payEmployee(code,sales);
+            payEmployee(code);
             
             }
        JOptionPane.showMessageDialog(null, "Error al pagar");
@@ -188,18 +188,36 @@ public class EmpleadosManager {
 
     }
 
-    public void payEmployee(int code, double venta) throws IOException {
-        RandomAccessFile archrec = billsFilefor(code);
-
-        archrec.seek(archrec.length());
+  
+    public void payEmployee(int code) throws IOException {
+        RandomAccessFile filesp = billsFilefor(code);
+        RandomAccessFile ryear = salesFileFor(code);
+        ryear.seek(0);
+        int pos = 0;
+        for (int i = 0; i < Calendar.getInstance().get(Calendar.MONTH); i++) {
+            ryear.skipBytes(9);
+            pos += 9;
+        }
+        if(ryear.readBoolean()==false){
+        
+        ryear.seek(pos);
+        ryear.writeBoolean(true);
+        double venta = ryear.readDouble();
+        
+        filesp.seek(filesp.length());
         double salario = salary(code);
 
-        archrec.writeLong(new Date().getTime());
-        archrec.writeDouble(salario + (venta * 0.10));
-        archrec.writeDouble(salario - (salario * 0.35));
-        archrec.writeInt(Calendar.getInstance().get(Calendar.YEAR));
-        archrec.writeInt(Calendar.getInstance().get(Calendar.MONTH));
-
+        filesp.writeLong(new Date().getTime());
+        filesp.writeDouble(salario + (venta * 0.10));
+        filesp.writeDouble(salario - (salario * 0.35));
+        filesp.writeInt(Calendar.getInstance().get(Calendar.YEAR));
+        filesp.writeInt(Calendar.getInstance().get(Calendar.MONTH));
+        JOptionPane.showMessageDialog(null, "¡Se ha pagado al empleado!");
+        }else{
+            
+        JOptionPane.showMessageDialog(null, "¡Error: Ya se le pagó a este empleado!");
     }
+    }
+
 
 }
