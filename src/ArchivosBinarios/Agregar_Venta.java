@@ -5,22 +5,19 @@
 package ArchivosBinarios;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Azalia
  */
-public class Agregar_Empleadou extends javax.swing.JFrame {
+public class Agregar_Venta extends javax.swing.JFrame {
     EmpleadosManager empleados;
     /**
-     * Creates new form Agregar_Empleadou
+     * Creates new form Agregar_Venta
      */
-    public Agregar_Empleadou(EmpleadosManager empleados) {
+    public Agregar_Venta(EmpleadosManager empleados) {
         initComponents();
-        setLocationRelativeTo(this);
         this.empleados=empleados;
     }
 
@@ -39,8 +36,8 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtTipos = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtNombre = new javax.swing.JTextField();
-        txtSalario = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
+        txtVenta = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
         btnAgregar = new javax.swing.JButton();
 
@@ -49,27 +46,27 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
-        jLabel1.setText("Agregar Empleado");
+        jLabel1.setText("Agregar Venta");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        jLabel2.setText("Nombre:");
+        jLabel2.setText("Codigo:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
 
         txtTipos.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
-        txtTipos.setText("Salario:");
+        txtTipos.setText("Venta:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
 
-        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+        txtCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNombreActionPerformed(evt);
+                txtCodigoActionPerformed(evt);
             }
         });
 
-        txtSalario.addActionListener(new java.awt.event.ActionListener() {
+        txtVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSalarioActionPerformed(evt);
+                txtVentaActionPerformed(evt);
             }
         });
 
@@ -107,10 +104,10 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(jLabel5)
                     .addComponent(txtTipos))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(70, 70, 70)
@@ -131,10 +128,10 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTipos))
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -161,42 +158,40 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+    private void txtCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNombreActionPerformed
+    }//GEN-LAST:event_txtCodigoActionPerformed
 
-    private void txtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalarioActionPerformed
+    private void txtVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVentaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalarioActionPerformed
+    }//GEN-LAST:event_txtVentaActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-       // menu.setVisible(true);
+        // menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
         // TODO add your handling code here:
-        String nombre = txtNombre.getText();
-        double salario = Double.valueOf(txtSalario.getText());
-        if (nombre.isEmpty() || txtSalario.getText().isEmpty()){
+        String nombre = txtCodigo.getText();
+        double salario = Double.valueOf(txtVenta.getText());
+        if (nombre.isEmpty() || txtVenta.getText().isEmpty()){
             JOptionPane.showMessageDialog(this, "Casillas vacias");
         }else
-            try {
-                empleados.addEmployee(nombre,salario);
+        try {
+            empleados.addEmployee(nombre,salario);
         } catch (IOException ex) {
-           JOptionPane.showConfirmDialog(null, "Algo salio mal");
+            JOptionPane.showConfirmDialog(null, "Algo salio mal");
         }
-           
-      
-        
+
     }//GEN-LAST:event_btnAgregarMouseClicked
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAgregarActionPerformed
 
-    
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBack;
@@ -205,8 +200,8 @@ public class Agregar_Empleadou extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtSalario;
+    private javax.swing.JTextField txtCodigo;
     private javax.swing.JLabel txtTipos;
+    private javax.swing.JTextField txtVenta;
     // End of variables declaration//GEN-END:variables
 }
