@@ -156,16 +156,48 @@ public class EmpleadosManager {
 
                     }
                 }
-            }else{
-                remps.seek(remps.getFilePointer()+1);
+            } else {
+                remps.seek(remps.getFilePointer() + 1);
             }
         }
     }
 
-    private RandomAccessFile billsFilefor(int code) throws IOException{
-        String recibo= employeeFolder(code);
-        String path=recibo+"/recibo.emp";
-        return new RandomAccessFile(path,"rw");
+    private RandomAccessFile billsFilefor(int code) throws IOException {
+        String recibo = employeeFolder(code);
+        String path = recibo + "/recibo.emp";
+        return new RandomAccessFile(path, "rw");
     }
-    
+
+    private double salary(int code) throws IOException {
+        remps.seek(0);
+        double salario = 0;
+
+        while (remps.getFilePointer() < remps.length()) {
+            int codigo = remps.readInt();
+            remps.readUTF();
+            double salary = remps.readDouble();
+            remps.skipBytes(16);
+            if (codigo == code) {
+                salario = salary;
+            }
+
+        }
+
+        return salario;
+    }
+
+    public void payEmployee(int code, double venta) throws IOException {
+        RandomAccessFile archrec = billsFilefor(code);
+
+        archrec.seek(archrec.length());
+        double salario = salary(code);
+
+        archrec.writeLong(new Date().getTime());
+        archrec.writeDouble(salario + (venta * 0.10));
+        archrec.writeDouble(salario - (salario * 0.35));
+        archrec.writeInt(Calendar.getInstance().get(Calendar.YEAR));
+        archrec.writeInt(Calendar.getInstance().get(Calendar.MONTH));
+
+    }
+
 }
